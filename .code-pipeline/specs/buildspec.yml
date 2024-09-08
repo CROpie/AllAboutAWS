@@ -22,4 +22,5 @@ phases:
 
 artifacts:
   files:
-    - 'MyApp.zip'
+    - '**/*'
+  base-directory: 'node'
