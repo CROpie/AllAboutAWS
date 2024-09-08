@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Deploy a Lambda function using a zip file stored in S3.
+
+Parameters:
+  LambdaFunctionName:
+    Type: String
+    Description: The name of the Lambda function.
+  S3BucketName:
+    Type: String
+    Description: The name of the S3 bucket where the zip file is stored.
+  S3ObjectKey:
+    Type: String
+    Description: The S3 key (path) to the zip file.
+
+Resources:
+  AllAboutAWSLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Ref LambdaFunctionName
+      Handler: index.handler
+      Role: arn:aws:iam::211125397983:role/AllAboutAWSLambdaRole
+      Code:
+        S3Bucket: !Ref S3BucketName
+        S3Key: !Ref S3ObjectKey
+      Runtime: nodejs20.x
+
+Outputs:
+  LambdaFunctionArn:
+    Description: The ARN of the Lambda function
+    Value: !GetAtt AllAboutAWSLambda.Arn
