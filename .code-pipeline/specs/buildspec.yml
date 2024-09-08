@@ -17,8 +17,8 @@ phases:
       - cd ..
       - chmod +x .code-pipeline/scripts/ci.sh
       - bash .code-pipeline/scripts/ci.sh
-      - zip -r MyApp.zip node/dist
-      - zip -g MyApp.zip node/cloudformation.yml
+      # - zip -r MyApp.zip node/dist
+      # - zip -g MyApp.zip node/cloudformation.yml
 
 artifacts:
   files:
