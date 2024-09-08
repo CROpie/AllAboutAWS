@@ -17,12 +17,8 @@ phases:
       - cd ..
       - chmod +x .code-pipeline/scripts/ci.sh
       - bash .code-pipeline/scripts/ci.sh
+      - zip -r MyApp.zip node/dist
 
 artifacts:
   files:
-    - 'dist/**/*'
-  base-directory: 'dist'
-
-cache:
-  paths:
-    - 'node_modules/**/*'
+    - 'MyApp.zip'
