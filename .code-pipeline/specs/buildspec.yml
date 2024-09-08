@@ -4,9 +4,6 @@ phases:
   install:
     commands:
       - echo Installing dependencies...
-      - ls -al
-      - cd ~
-      - ls -al
       - cd node
       - npm install
   build:
@@ -17,6 +14,7 @@ phases:
     commands:
       - echo Build completed on `date`
       - ls -al
+      - cd ..
       - chmod +x .code-pipeline/scripts/ci.sh
       - bash .code-pipeline/scripts/ci.sh
 
