@@ -22,4 +22,5 @@ phases:
 
 artifacts:
   files:
-    - 'MyApp.zip'
+    - 'node/dist/**/*'
+    - 'node/cloudformation.yml'
