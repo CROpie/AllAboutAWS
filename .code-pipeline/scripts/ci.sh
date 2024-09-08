@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "Running the script!"
+echo "Running the script!!"
