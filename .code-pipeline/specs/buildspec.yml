@@ -4,7 +4,9 @@ phases:
   install:
     commands:
       - echo Installing dependencies...
-      - ls
+      - ls -al
+      - cd ~
+      - ls -al
       - cd node
       - npm install
   build:
