@@ -1,0 +1,13 @@
+version: 0.2
+
+variables:
+  NAME: PEANUT
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  build:
+    commands:
+      echo $NAME
+      bash .code-pipeline/scripts/ci.sh
