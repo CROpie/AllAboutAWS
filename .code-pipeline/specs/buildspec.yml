@@ -15,18 +15,13 @@ phases:
       - zip -r MyApp.zip node/dist
       - echo Build completed on `date`
       - ls -al
+      - echo $CODEBUILD_ARTIFACTS_BUCKET
+      - echo $CODEBUILD_ARTIFACTS_KEY
   post_build:
     commands:
       - chmod +x .code-pipeline/scripts/ci.sh
       - bash .code-pipeline/scripts/ci.sh
-      - aws cloudformation deploy \
-        --template-file node/cloudformation.yml \
-        --stack-name all-about-aws-stack \
-        --capabilities CAPABILITY_IAM \
-        --parameter-overrides \
-          LambdaFunctionName=all-about-aws-lambda \
-          s3BucketName=$CODEBUILD_ARTIFACTS_BUCKET \
-          S3ObjectKey=$CODEBUILD_ARTIFACTS_KEY
+      - aws cloudformation deploy --template-file node/cloudformation.yml --stack-name all-about-aws-stack --capabilities CAPABILITY_IAM --parameter-overrides LambdaFunctionName=all-about-aws-lambda s3BucketName=$CODEBUILD_ARTIFACTS_BUCKET S3ObjectKey=$CODEBUILD_ARTIFACTS_KEY
 
 artifacts:
   files:
